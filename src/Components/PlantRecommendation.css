@@ -1,0 +1,127 @@
+.recommendation-box {
+    text-align: left;
+    padding: 2rem;
+    /* background-color: #1e2429; */
+    /* border-radius: 10px; */
+    color: rgb(16, 15, 15);
+  }
+  
+  .recommendation-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .conditions-list {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    padding-left: 2rem;
+  }
+  
+  .recommendation-text {
+    margin: 1.5rem 0;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  .action-items {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+  
+  .action-items li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .disclaimer {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #f40808;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .switch-container {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 1.5rem;
+    margin-top:1rem;
+    /* margin: 2rem auto; */
+    max-width: 600px; /* Adjust based on your needs */
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    flex-shrink: 0; /* Prevents the switch from shrinking */
+  }
+  
+  .switch-label {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-left: 10px;
+    flex-grow: 1; /* Allows the label to take up remaining space */
+    text-align: left;
+    transition: color 0.3s ease;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    transition: background-color 0.4s ease;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+  }
+  
+  input:checked + .slider {
+    background-color: #4ECDC4;
+  }
+  
+  input:disabled + .slider {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  /* Loading animation */
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+  
+  input:checked + .slider {
+    animation: pulse 1.5s infinite;
+  }
