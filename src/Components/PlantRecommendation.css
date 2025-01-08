@@ -1,127 +1,205 @@
 .recommendation-box {
-    text-align: left;
-    padding: 2rem;
-    /* background-color: #1e2429; */
-    /* border-radius: 10px; */
-    color: rgb(16, 15, 15);
-  }
-  
-  .recommendation-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
-  .conditions-list {
-    margin-bottom: 1.5rem;
-    text-align: left;
-    padding-left: 2rem;
-  }
-  
-  .recommendation-text {
-    margin: 1.5rem 0;
-    line-height: 1.6;
-    text-align: justify;
-  }
-  
-  .action-items {
-    margin: 1.5rem 0;
-    padding-left: 2rem;
-  }
-  
-  .action-items li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .disclaimer {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #f40808;
-    margin-top: 2rem;
-    text-align: center;
-  }
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .switch-container {
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    gap: 1.5rem;
-    margin-top:1rem;
-    /* margin: 2rem auto; */
-    max-width: 600px; /* Adjust based on your needs */
+.recommendation-box h2 {
+  text-align: left;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.current-conditions {
+  margin: 15px 0;
+}
+
+.current-conditions p {
+  margin: 5px 0;
+  color: #666;
+  text-align: left;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.toggle-container span {
+  color: #666;
+}
+
+.recommendation-content {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  text-align: left;
+}
+
+.loading {
+  font-size: 1.2rem; 
+  text-align: center; 
+  background-color: white; 
+  color:#ff0000;
+}
+
+.flashing {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.disclaimer {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  color:red
+}
+
+.disclaimer p {
+  color: #ff0000;
+  font-size: 0.8em;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .recommendation-container {
+    width: 100%;
+    max-width: 500px;
   }
-  
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    flex-shrink: 0; /* Prevents the switch from shrinking */
-  }
-  
-  .switch-label {
-    color: #333;
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-left: 10px;
-    flex-grow: 1; /* Allows the label to take up remaining space */
-    text-align: left;
-    transition: color 0.3s ease;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-    transition: background-color 0.4s ease;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-    transition: transform 0.4s ease;
-  }
-  
-  input:checked + .slider {
-    background-color: #4ECDC4;
-  }
-  
-  input:disabled + .slider {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-  
-  /* Loading animation */
-  @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.6; }
-    100% { opacity: 1; }
-  }
-  
-  input:checked + .slider {
-    animation: pulse 1.5s infinite;
-  }
+}
+
+.recommendation-content h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-align: left;
+  font-weight: bold;
+}
+
+.recommendation-content p {
+  text-align: left;
+  margin-bottom: 15px;
+  color: #d71c1c;
+
+}
+
+.recommendation-content ul {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+  list-style-type: disc;
+}
+
+.recommendation-content li {
+  margin-bottom: 10px;
+  color: #444;
+  text-align: left;
+}
+
+.recommendation-content br {
+  display: block;
+  margin: 15px 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears on top */
+}
+
+.recommendation-content {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%; /* Adjust width as needed */
+  max-width: 700px; /* Max width for larger screens */
+  position: relative;
+  -webkit-box-shadow:0px 0px 93px 10px rgba(45,255,196,0.9);
+  -moz-box-shadow: 0px 0px 93px 10px rgba(45,255,196,0.9);
+  box-shadow: 0px 0px 93px 10px rgba(45,255,196,0.9);
+
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333; /* Close button color */
+}
+
+.modal-open {
+  overflow: hidden; /* Prevent scrolling */
+}
+
